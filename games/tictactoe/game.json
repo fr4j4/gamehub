@@ -1,0 +1,14 @@
+{
+  "id": "tictactoe",
+  "name": "Tres en Raya",
+  "version": "1.0.0",
+  "sdk": "^1.0.0",
+  "description": "El clásico de siempre. Toca la casilla en tu teléfono; gana quien se lleve dos rondas.",
+  "players": { "min": 2, "max": 2 },
+  "logic": "screen",
+  "entry": "index.js",
+  "icon": "icon.svg",
+  "controls": "Cuadrícula táctil",
+  "tags": ["Clásico", "Por turnos"],
+  "order": 1
+}

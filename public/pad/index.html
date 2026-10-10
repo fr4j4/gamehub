@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0d0f1a">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>GameHub · Mando</title>
+  <link rel="stylesheet" href="pad.css">
+</head>
+<body>
+  <!-- Unirse -->
+  <section id="join" class="screen">
+    <div class="brand"><span class="logo">◆</span> GameHub</div>
+    <form id="joinForm" class="card" autocomplete="off">
+      <label>Código de la sesión
+        <input id="code" maxlength="6" inputmode="latin" autocapitalize="characters" placeholder="K7MPX" required>
+      </label>
+      <label>Tu nombre
+        <input id="name" maxlength="16" placeholder="Jugador" required>
+      </label>
+      <button class="primary" type="submit">Entrar</button>
+      <button id="scanBtn" class="ghost" type="button" hidden>Escanear QR</button>
+      <p id="joinError" class="error" role="alert"></p>
+    </form>
+    <p class="hint">El código aparece en la pantalla de la consola.</p>
+  </section>
+
+  <!-- Lobby -->
+  <section id="lobby" class="screen" hidden>
+    <header class="bar">
+      <span id="meChip" class="chip"></span>
+      <span id="sessionCode" class="code"></span>
+    </header>
+    <div id="lobbyBody" class="lobby-body">
+      <h2 id="lobbyTitle"></h2>
+      <ul id="playerList" class="players"></ul>
+      <div id="leaderPanel" hidden>
+        <h3>Elige un juego</h3>
+        <ul id="gameList" class="games"></ul>
+        <button id="startBtn" class="primary" disabled>Iniciar</button>
+        <p id="lobbyError" class="error" role="alert"></p>
+      </div>
+      <p id="waitText" class="hint"></p>
+    </div>
+  </section>
+
+  <!-- Mando -->
+  <section id="pad" class="screen" hidden>
+    <div id="controls" class="controls"></div>
+    <div id="rotateHint" class="rotate" hidden>↻ Gira el teléfono</div>
+  </section>
+
+  <!-- Resultados -->
+  <section id="results" class="screen" hidden>
+    <div class="card center">
+      <div id="resultPlace" class="place"></div>
+      <div id="resultTitle" class="result-title"></div>
+      <button id="resultsOk" class="primary">Volver al lobby</button>
+    </div>
+  </section>
+
+  <div id="status" class="status" hidden></div>
+  <script type="module" src="pad.js"></script>
+</body>
+</html>

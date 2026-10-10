@@ -1,0 +1,14 @@
+{
+  "id": "pong",
+  "name": "Pong",
+  "version": "1.0.0",
+  "sdk": "^1.0.0",
+  "description": "Desliza el dedo para mover tu paleta. La pelota acelera con cada golpe; gana quien llegue a 7.",
+  "players": { "min": 2, "max": 2 },
+  "logic": "screen",
+  "entry": "index.js",
+  "icon": "icon.svg",
+  "controls": "Deslizador",
+  "tags": ["Clásico", "Duelo"],
+  "order": 3
+}

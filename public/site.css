@@ -1,0 +1,18 @@
+:root { --bg:#0b0d1a; --panel:#151833; --line:#2a2f55; --text:#f3f4fb; --muted:#9399c2; --accent:#3ec1ff; font-family: system-ui, "Segoe UI", sans-serif; }
+html,body { margin:0; background: radial-gradient(70vw 50vw at 90% -10%, #3ec1ff22, transparent 60%), var(--bg); color: var(--text); min-height:100%; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 40px 20px 60px; }
+.wrap.narrow { max-width: 480px; }
+h1 { font-size: 36px; margin: 0 0 8px; } h1 small { font-size: 16px; color: var(--muted); margin-left: 8px; }
+h2 { margin: 36px 0 12px; font-size: 20px; }
+.logo { color: var(--accent); }
+.lead { color: var(--muted); font-size: 18px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.cards.one { grid-template-columns: 1fr; margin-top: 20px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px; color: inherit; text-decoration: none; display: flex; flex-direction: column; gap: 8px; }
+a.card:hover { border-color: var(--accent); }
+.card span, .muted { color: var(--muted); }
+.card.center { align-items: center; text-align: center; }
+.card.off, .btn.off { opacity: .55; pointer-events: none; }
+.btn { margin-top: auto; background: var(--accent); color: #031522; text-decoration: none; font-weight: 700; padding: 10px 14px; border-radius: 10px; text-align: center; }
+.qr { width: 160px; height: 160px; background: #fff; border-radius: 10px; padding: 6px; image-rendering: pixelated; }
+code { font-size: 18px; }

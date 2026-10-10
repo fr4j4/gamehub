@@ -1,0 +1,15 @@
+{
+  "id": "kart",
+  "name": "Turbo Karts",
+  "version": "1.0.0",
+  "sdk": "^1.0.0",
+  "description": "Carreras de karts en pantalla dividida para hasta 4 jugadores. Inclina el teléfono como volante, recoge cajas y usa turbos y plátanos.",
+  "players": { "min": 1, "max": 4 },
+  "logic": "screen",
+  "entry": "index.js",
+  "icon": "icon.svg",
+  "controls": "Volante por inclinación",
+  "tags": ["Carreras", "Pantalla dividida", "2.5D"],
+  "options": [{ "id": "laps", "type": "int", "label": "Vueltas", "default": 3, "min": 1, "max": 5 }],
+  "order": 4
+}

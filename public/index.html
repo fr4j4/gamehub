@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameHub</title>
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1><span class="logo">◆</span> GameHub <small id="name"></small></h1>
+    <p class="lead">Consola de juegos abierta: una pantalla para jugar y los teléfonos como mandos.</p>
+    <div class="cards">
+      <a class="card" href="/console/"><b>Abrir la consola</b><span>En la TV, PC o proyector. Funciona en cualquier navegador moderno.</span></a>
+      <a class="card" href="/pad/"><b>Abrir el mando web</b><span>En el teléfono, sin instalar nada.</span></a>
+      <a class="card" href="/admin/"><b>Administración</b><span>Juegos, sesiones, dispositivos y ajustes.</span></a>
+    </div>
+    <h2>Apps para Android</h2>
+    <div class="cards">
+      <div class="card"><b>GameHub Pad</b><span>Mando con sensores, vibración y lector de QR.</span><a id="padApk" class="btn">Descargar APK</a></div>
+      <div class="card"><b>GameHub Console</b><span>Para Android TV, TV box o tablet.</span><a id="consoleApk" class="btn">Descargar APK</a></div>
+      <div class="card center"><img id="getQr" class="qr" alt="QR de descarga"><span>Escanea con el teléfono</span></div>
+    </div>
+    <h2>Vincular una app a este servidor</h2>
+    <div class="cards">
+      <div class="card"><span>Dirección del servidor</span><code id="addr"></code><span id="lan" class="muted"></span></div>
+      <div class="card center"><img id="regQr" class="qr" alt="QR de registro"><span>Escanéalo desde la app</span></div>
+    </div>
+  </main>
+  <script type="module">
+    const info = await (await fetch('/api/hub/info')).json();
+    const d = await (await fetch('/api/downloads')).json();
+    document.getElementById('name').textContent = info.name;
+    document.getElementById('addr').textContent = info.baseUrl;
+    document.getElementById('lan').textContent = info.lan.length > 1 ? 'También: ' + info.lan.slice(1).join(', ') : '';
+    document.getElementById('getQr').src = '/api/qr?text=' + encodeURIComponent(info.baseUrl + '/get');
+    document.getElementById('regQr').src = '/api/qr?text=' + encodeURIComponent(info.registerUri);
+    for (const [id, k] of [['padApk', 'pad'], ['consoleApk', 'console']]) {
+      const a = document.getElementById(id);
+      if (d[k].available) a.href = d[k].url; else { a.textContent = 'Aún no publicada'; a.classList.add('off'); }
+    }
+  </script>
+</body>
+</html>

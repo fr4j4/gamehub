@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameHub · Instalar</title>
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+  <main class="wrap narrow">
+    <h1><span class="logo">◆</span> GameHub</h1>
+    <div class="cards one">
+      <a id="padApk" class="card"><b>Instalar GameHub Pad</b><span>Recomendado en Android: sensores, vibración y lector de QR.</span></a>
+      <a id="openApp" class="card"><b>Ya tengo la app</b><span>Vincular este servidor en GameHub Pad.</span></a>
+      <a class="card" href="/pad/"><b>Jugar en el navegador</b><span>Sin instalar nada.</span></a>
+    </div>
+  </main>
+  <script type="module">
+    const info = await (await fetch('/api/hub/info')).json();
+    const d = await (await fetch('/api/downloads')).json();
+    const apk = document.getElementById('padApk');
+    if (d.pad.available) apk.href = d.pad.url; else { apk.querySelector('span').textContent = 'Todavía no está publicada en este servidor.'; apk.classList.add('off'); }
+    document.getElementById('openApp').href = info.registerUri;
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "gamehub",
+  "version": "0.1.0",
+  "description": "GameHub: consola de juegos abierta con teléfonos como mandos",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node tests/protocol.test.js && node --import ./tests/register.mjs tests/games.test.js",
+    "test:protocol": "node tests/protocol.test.js",
+    "test:games": "node --import ./tests/register.mjs tests/games.test.js"
+  }
+}

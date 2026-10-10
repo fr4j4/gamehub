@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070814">
+  <title>GameHub · Consola</title>
+  <link rel="stylesheet" href="console.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <!-- Inicio -->
+  <section id="home" class="view">
+    <header class="top">
+      <div class="brand"><span class="logo">◆</span> GameHub <small id="hubName"></small></div>
+      <div class="top-right"><span id="netState" class="net"></span><span id="clock" class="clock"></span></div>
+    </header>
+
+    <main class="home-main">
+      <div class="shelf">
+        <h2 class="shelf-title">Juegos</h2>
+        <div id="carousel" class="carousel"></div>
+        <div id="gameInfo" class="game-info">
+          <h1 id="gameName"></h1>
+          <p id="gameDesc"></p>
+          <div id="gameMeta" class="meta"></div>
+        </div>
+      </div>
+
+      <aside class="join">
+        <div class="join-title">Únete con tu teléfono</div>
+        <img id="joinQr" class="qr" alt="Código QR para unirse">
+        <div class="join-code" id="joinCode">·····</div>
+        <div class="join-url" id="joinUrl"></div>
+        <ul id="players" class="players"></ul>
+        <div id="leaderNote" class="leader-note"></div>
+      </aside>
+    </main>
+
+    <footer class="menu">
+      <button class="nav menu-btn primary" id="playBtn">▶ Jugar</button>
+      <button class="nav menu-btn" id="localBtn">⌨ Jugadores locales: <b id="localCount">0</b></button>
+      <button class="nav menu-btn" id="settingsBtn">⚙ Ajustes</button>
+      <button class="nav menu-btn" id="adminBtn">🔒 Admin</button>
+      <span class="hints">◀ ▶ ▲ ▼ moverse · Enter elegir · Esc volver</span>
+    </footer>
+  </section>
+
+  <!-- Juego -->
+  <section id="game" class="view" hidden>
+    <div id="stage" class="stage"></div>
+    <div id="exitHint" class="exit-hint" hidden>Pulsa Esc otra vez para salir del juego</div>
+  </section>
+
+  <!-- Resultados -->
+  <section id="results" class="view overlay" hidden>
+    <div class="results-card">
+      <h1 id="resultsTitle"></h1>
+      <ol id="podium" class="podium"></ol>
+      <button class="nav menu-btn primary" id="resultsOk">Continuar</button>
+    </div>
+  </section>
+
+  <!-- Ajustes -->
+  <section id="settings" class="view" hidden>
+    <header class="top"><div class="brand"><span class="logo">◆</span> Ajustes</div></header>
+    <div class="settings-grid">
+      <div class="panel">
+        <h3>Servidor</h3>
+        <p id="srvInfo"></p>
+        <p class="muted">Para vincular la app <b>GameHub Console</b> o <b>GameHub Pad</b> a este servidor, escanea este código desde la app:</p>
+        <img id="regQr" class="qr small" alt="QR de registro del servidor">
+      </div>
+      <div class="panel">
+        <h3>Descargar las apps</h3>
+        <p class="muted">Escanea con la cámara del teléfono para instalar GameHub Pad o jugar desde el navegador.</p>
+        <img id="getQr" class="qr small" alt="QR de descarga">
+        <p id="apkLinks" class="muted"></p>
+      </div>
+      <div class="panel">
+        <h3>Jugadores locales</h3>
+        <p class="muted">Para probar juegos sin teléfonos. Jugador 1: <b>WASD</b> mover, <b>F G H</b> botones, <b>1–9</b> celdas. Jugador 2: <b>flechas</b>, <b>K L J</b>, teclado numérico. Los gamepads USB o Bluetooth también cuentan como jugadores locales.</p>
+        <button class="nav menu-btn" id="fsBtn">Pantalla completa</button>
+      </div>
+    </div>
+    <footer class="menu"><button class="nav menu-btn primary" id="settingsBack">← Volver</button></footer>
+  </section>
+
+  <!-- Admin -->
+  <section id="admin" class="view admin-view" hidden></section>
+
+  <div id="toast" class="toast" hidden></div>
+  <script type="module" src="console.js"></script>
+</body>
+</html>
